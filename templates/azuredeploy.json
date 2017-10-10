@@ -620,20 +620,15 @@
                   "type": "DSC",
                   "typeHandlerVersion": "2.20",
                   "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
                   "settings": {
                     "configuration": {
-                      "url": "[concat(parameters('_artifactsLocation'), '/', variables('DscExtensionArchiveFolder'), '/', variables('DscExtensionArchiveFileName'))]",
-                      "script": "DscExtension.ps1",
-                      "function": "Main"
+                      "url": "http://minecraftfilstore.blob.core.windows.net/dscconfig/",
+                      "script": "ServiceFabricNodeDSC.ps1",
+                      "function": "ServiceFabricNode"
                     }
-                  },
-                  "protectedSettings": {
-                    "configurationUrlSasToken": "[parameters('_artifactsLocationSasToken')]"
                   }
                 }
               }
-
             ]
           },
           "networkProfile": {
