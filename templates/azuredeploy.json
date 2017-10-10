@@ -396,7 +396,7 @@
               "frontendPort": "25565",
               "idleTimeoutInMinutes": "5",
               "probe": {
-                "id": "[concat(variables('lbID0'),'/probes/AppPortProbe2')]"
+                "id": "[concat(variables('lbID0'),'/probes/FabricGatewayProbe')]"
               },
               "protocol": "tcp"
             }
@@ -415,7 +415,7 @@
               "frontendPort": "25575",
               "idleTimeoutInMinutes": "5",
               "probe": {
-                "id": "[concat(variables('lbID0'),'/probes/AppPortProbe2')]"
+                "id": "[concat(variables('lbID0'),'/probes/FabricGatewayProbe')]"
               },
               "protocol": "tcp"
             }
