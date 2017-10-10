@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RConMonitor", "RConMonitor\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCONtestProject", "RCONtestProject\RCONtestProject.csproj", "{CD51627E-182C-4100-89D0-624888BE96CC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{D4942366-10B9-4068-8E35-FBA4DCBA50F1}"
+	ProjectSection(SolutionItems) = preProject
+		templates\azuredeploy.json = templates\azuredeploy.json
+		templates\azuredeploy.parameters.json = templates\azuredeploy.parameters.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

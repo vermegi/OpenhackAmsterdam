@@ -1,0 +1,60 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "value": "openhackt04"
+    },
+    "adminUserName": {
+      "value": "openhack123"
+    },
+    "adminPassword": {
+      "value": "openHack123!"
+    },
+    "clusterLocation": {
+      "value": "west europe"
+    },
+    "vmImagePublisher": {
+      "value": "MicrosoftWindowsServer"
+    },
+    "vmImageOffer": {
+      "value": "WindowsServer"
+    },
+    "vmImageSku": {
+      "value": "2016-Datacenter-with-Containers"
+    },
+    "vmImageVersion": {
+      "value": "latest"
+    },
+    "clusterVersion": {
+      "value": "latest"
+    },
+    "certificateStoreValue": {
+      "value": "My"
+    },
+    "certificateThumbprint": {
+      "value": ""
+    },
+    "sourceVaultValue": {
+      "value": ""
+    },
+    "certificateUrlValue": {
+      "value": ""
+    },
+    "loadBalancedAppPort1": {
+      "value": 80
+    },
+    "loadBalancedAppPort2": {
+      "value": 8081
+    },
+    "storageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "supportLogStorageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "omsWorkspacename": {
+      "value": "openhackOMSt04"
+    }
+  }
+}
