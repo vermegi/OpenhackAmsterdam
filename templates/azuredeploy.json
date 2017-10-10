@@ -537,10 +537,10 @@
                     "nodeTypeRef": "[variables('vmNodeType0Name')]",
                     "dataPath": "D:\\\\SvcFab",
                     "durabilityLevel": "Bronze",
-                    "certificate": {
-                      "thumbprint": "[parameters('certificateThumbprint')]",
-                      "x509StoreName": "[parameters('certificateStoreValue')]"
-                    },
+                    //"certificate": {
+                    //  "thumbprint": "[parameters('certificateThumbprint')]",
+                    //  "x509StoreName": "[parameters('certificateStoreValue')]"
+                    //},
                     "nicPrefixOverride": "[variables('subnet0Prefix')]"
                   },
                   "typeHandlerVersion": "1.0"
@@ -798,7 +798,7 @@
             "name": "DnsService"
           }
         ],
-        "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-','0')).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
+        "managementEndpoint": "[concat('http://',reference(concat(variables('lbIPName'),'-','0')).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
         "nodeTypes": [
           {
             "name": "[variables('vmNodeType0Name')]",
