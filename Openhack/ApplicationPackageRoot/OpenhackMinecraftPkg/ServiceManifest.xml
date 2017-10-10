@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="OpenhackMinecraftPkg"
-                 Version="1.0.0"
+                 Version="1.0.1"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -11,11 +11,11 @@
   </ServiceTypes>
 
   <!-- Code package is your service executable. -->
-  <CodePackage Name="Code" Version="1.0.0">
+  <CodePackage Name="Code" Version="1.0.1">
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>openhack/minecraft-server:1.0-nanoserver</ImageName>
+        <ImageName>openhack/minecraft-server:2.0-nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
