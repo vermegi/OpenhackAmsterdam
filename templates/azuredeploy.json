@@ -381,7 +381,47 @@
               },
               "protocol": "tcp"
             }
+          },
+          {
+            "name": "MinecraftLBRule1",
+            "properties": {
+              "backendAddressPool": {
+                "id": "[variables('lbPoolID0')]"
+              },
+              "backendPort": "25565",
+              "enableFloatingIP": "false",
+              "frontendIPConfiguration": {
+                "id": "[variables('lbIPConfig0')]"
+              },
+              "frontendPort": "25565",
+              "idleTimeoutInMinutes": "5",
+              "probe": {
+                "id": "[concat(variables('lbID0'),'/probes/AppPortProbe2')]"
+              },
+              "protocol": "tcp"
+            }
+          },
+          {
+            "name": "MinecraftLBRule2",
+            "properties": {
+              "backendAddressPool": {
+                "id": "[variables('lbPoolID0')]"
+              },
+              "backendPort": "25575",
+              "enableFloatingIP": "false",
+              "frontendIPConfiguration": {
+                "id": "[variables('lbIPConfig0')]"
+              },
+              "frontendPort": "25575",
+              "idleTimeoutInMinutes": "5",
+              "probe": {
+                "id": "[concat(variables('lbID0'),'/probes/AppPortProbe2')]"
+              },
+              "protocol": "tcp"
+            }
           }
+
+
         ],
         "probes": [
           {
