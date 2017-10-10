@@ -9,6 +9,7 @@ namespace RConMonitor
 {
     internal static class Program
     {
+        //test comment
         /// <summary>
         /// This is the entry point of the service host process.
         /// </summary>
