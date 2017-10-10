@@ -6,8 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
-using RconSharp;
-using RconSharp.Net45;
+using MinecraftServerRCON;
+using Microsoft.ApplicationInsights;
 
 namespace RConMonitor
 {
@@ -16,6 +16,8 @@ namespace RConMonitor
     /// </summary>
     internal sealed class RConMonitor : StatelessService
     {
+        private TelemetryClient _telemetry = new TelemetryClient();
+
         public RConMonitor(StatelessServiceContext context)
             : base(context)
         { }
@@ -47,25 +49,13 @@ namespace RConMonitor
                 try
                 {
 
-
-                    // create an instance of the socket. In this case i've used the .Net 4.5 object defined in the project
-                    INetworkSocket socket = new RconSocket();
-
-                    // create the RconMessenger instance and inject the socket
-                    RconMessenger messenger = new RconMessenger(socket);
-
-                    // initiate the connection with the remote server
-                    bool isConnected = await messenger.ConnectAsync("localhost", 25575);
-
-                    // try to authenticate with your supersecretpassword (... obviously this is my hackerproof key, you shoul use yours)
-                    //bool authenticated = await messenger.AuthenticateAsync("supersecretpassword");
-                    //if (authenticated)
-                    //{
-                        // if we fall here, we're good to go! from this point on the connection is authenticated and you can send commands 
-                        // to the server
-                        var response = await messenger.ExecuteCommandAsync("/help");
-                    ServiceEventSource.Current.ServiceMessage(this.Context, "Response= {0}", response);
-                    //}
+                    using (var rcon = RCONClient.INSTANCE)
+                    {
+                        rcon.setupStream("openhackteam04.westeurope.cloudapp.azure.com", password: "cheesesteakjimmys");
+                        var answer = rcon.sendMessage(RCONMessageType.Command, "list");
+                        ServiceEventSource.Current.ServiceMessage(this.Context, "List Answer-{0}", answer.RemoveColorCodes());
+                        _telemetry.TrackMetric("players", 5);
+                    }
 
                     ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
 
