@@ -20,6 +20,7 @@
       <ContainerHostPolicies CodePackageRef="Code">
         <PortBinding ContainerPort="25565" EndpointRef="MinecraftDefaultEndpoint" />
         <PortBinding ContainerPort="25575" EndpointRef="MinecraftRCONEndpoint" />
+        <!--<Volume Source="Z:\" Destination="C:\data" />-->
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>

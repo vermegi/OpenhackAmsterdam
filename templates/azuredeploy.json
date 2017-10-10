@@ -622,7 +622,8 @@
                   "autoUpgradeMinorVersion": true,
                   "settings": {
                     "configuration": {
-                      "url": "http://minecraftfilstore.blob.core.windows.net/dscconfig/",
+                      //                      "url": "http://minecraftfilstore.blob.core.windows.net/dscconfig/",
+                      "url": "https://minecraftfilestore.blob.core.windows.net/dscconfig/ServiceFabricNodeDSC.zip",
                       "script": "ServiceFabricNodeDSC.ps1",
                       "function": "ServiceFabricNode"
                     }
