@@ -16,6 +16,24 @@ namespace RCONtestProject
                 rcon.setupStream("openhackteam04.westeurope.cloudapp.azure.com", password: "cheesesteakjimmys");
                 var answer = rcon.sendMessage(RCONMessageType.Command, "list");
                 Console.WriteLine(answer.RemoveColorCodes());
+                var thestring = answer.RemoveColorCodes();
+                var parts = thestring.Split(new char[] { ' ', '/' });
+                var playerdone = false;
+                foreach (var part in parts)
+                {
+                    long result;
+                    var succeeded = Int64.TryParse(part, out result);
+                    if (succeeded)
+                    {
+                        if (!playerdone)
+                        {
+                            Console.WriteLine("players: " + result);
+                            playerdone = true;
+                        }
+                        else
+                            Console.WriteLine("capacity: " + result);
+                    }
+                }
             }
 
             Console.ReadLine();
