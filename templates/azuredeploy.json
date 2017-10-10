@@ -612,7 +612,28 @@
                   },
                   "typeHandlerVersion": "1.5"
                 }
+              },
+              {
+                "name": "Microsoft.Powershell.DSC",
+                "properties": {
+                  "publisher": "Microsoft.Powershell",
+                  "type": "DSC",
+                  "typeHandlerVersion": "2.20",
+                  "autoUpgradeMinorVersion": true,
+                  "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
+                  "settings": {
+                    "configuration": {
+                      "url": "[concat(parameters('_artifactsLocation'), '/', variables('DscExtensionArchiveFolder'), '/', variables('DscExtensionArchiveFileName'))]",
+                      "script": "DscExtension.ps1",
+                      "function": "Main"
+                    }
+                  },
+                  "protectedSettings": {
+                    "configurationUrlSasToken": "[parameters('_artifactsLocationSasToken')]"
+                  }
+                }
               }
+
             ]
           },
           "networkProfile": {
