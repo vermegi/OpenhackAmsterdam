@@ -7,17 +7,16 @@ Configuration ServiceFabricNode {
         Script NetUse #ResourceName
         {
             GetScript = {
-                @{ Result = (Get-ChildItem -Path "G:\") }
+                @{ Result = (Get-ChildItem -Path "Z:\") }
             }
             SetScript = {
-                # net use....
+                net use Z: \\minecraftfilestore.file.core.windows.net\minecraftdata /u:AZURE\minecraftfilestore V8GVoXkSVsdfSZhAfDmEC4wNQFicScJKK+AOrQS223w1xOoTb60iA4jqfKFpnVQHIMRi/NaWLAnFqKfJ9o575g==
             }
             
-            TestScript = { Test-Path "G:\" }
+            TestScript = { Test-Path "Z:\" }
 
         }
         #add the config to mount
 
     }
 }
-    
