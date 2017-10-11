@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="OpenhackType" ApplicationTypeVersion="1.0.1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="OpenhackType" ApplicationTypeVersion="1.0.2" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="RConMonitor_InstanceCount" DefaultValue="-1" />
     <Parameter Name="OpenhackMinecraft_InstanceCount" DefaultValue="-1" />
@@ -8,11 +8,11 @@
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="RConMonitorPkg" ServiceManifestVersion="1.0.0" />
+    <ServiceManifestRef ServiceManifestName="RConMonitorPkg" ServiceManifestVersion="1.0.2" />
     <ConfigOverrides />
   </ServiceManifestImport>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="OpenhackMinecraftPkg" ServiceManifestVersion="1.0.1" />
+    <ServiceManifestRef ServiceManifestName="OpenhackMinecraftPkg" ServiceManifestVersion="1.0.2" />
     <ConfigOverrides />
     <Policies>
       <!--<ServicePackageResourceGovernancePolicy CpuCores="1" MemoryInMB="2048"/>
@@ -20,8 +20,9 @@
       <ContainerHostPolicies CodePackageRef="Code">
         <PortBinding ContainerPort="25565" EndpointRef="MinecraftDefaultEndpoint" />
         <PortBinding ContainerPort="25575" EndpointRef="MinecraftRCONEndpoint" />
-        <!--<Volume Source="Z:\" Destination="C:\data" />-->
+        <Volume Source="Z:\" Destination="C:\data" />
       </ContainerHostPolicies>
+      <!--<RunAsPolicy CodePackageRef="Code" UserRef="SetupAdminUser" EntryPointType="Setup" />-->
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
@@ -41,4 +42,13 @@
       </StatelessService>
     </Service>
   </DefaultServices>
+  <!--<Principals>
+    <Users>
+      <User Name="SetupAdminUser">
+        <MemberOf>
+          <SystemGroup Name="Administrators" />
+        </MemberOf>
+      </User>
+    </Users>
+  </Principals>-->
 </ApplicationManifest>
